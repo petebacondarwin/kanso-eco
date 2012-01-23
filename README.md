@@ -9,12 +9,11 @@ Eco templates run coffeescript directly in your templates.  Check out Sam Stephe
 
 ## To use
 
-Add `eco-1.1.0` and `modules` to your dependencies in `kanso.json`.
+Add `eco-1.1.0` to your dependencies in `kanso.json`.
 
     "dependencies": {
         ...
-        "eco-1.1.0": null,
-        "modules": null
+        "eco-1.1.0": null
     }
 
 Add an `eco` field to `kanso.json` with a list of folders to search for eco templates.
@@ -26,6 +25,6 @@ Add an `eco` field to `kanso.json` with a list of folders to search for eco temp
 The Eco precompiler compiles the eco template into a CommonJS module that you can require and run to render:
 
     var template = require('templates/mytemplate');
-    vat some_object = { name: "Pete", greeting: "Hello" };
+    var some_object = { name: "Pete", greeting: "Hello" };
     var rendered_html = template(some_object);
 

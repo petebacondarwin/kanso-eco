@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "Tests whether the eco package works correctly",
     "dependencies": {
-        "eco": null,
+        "eco-1.1.0": null,
         "attachments":null
     },    
     "eco" : {

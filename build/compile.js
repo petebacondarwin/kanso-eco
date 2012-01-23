@@ -14,10 +14,10 @@
     run: function(root, path, settings, doc, callback) {
       var doProcessFolder, doProcessItem, folder, folders, _ref;
       console.log("Running eco pre-compiler");
-      if (((_ref = settings["eco"]) != null ? _ref["modules"] : void 0) == null) {
+      if (((_ref = settings["eco"]) != null ? _ref["templates"] : void 0) == null) {
         return callback(null, doc);
       }
-      folders = settings["eco"]["modules"];
+      folders = settings["eco"]["templates"];
       if (!Array.isArray(folders)) folders = [folders];
       folders = (function() {
         var _i, _len, _results;
