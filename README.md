@@ -1,12 +1,14 @@
 # Eco Template Precompiler
+This package will precompile Eco templates and adds them to the design document as CommonJS modules that you can use in your applications.
 
 ## To use
 
-Add `eco` to your dependencies in `kanso.json`.
+Add `eco`, `modules` to your dependencies in `kanso.json`.
 
     "dependencies": {
         ...
-        "eco": null
+        "eco": null,
+        "modules": null
     }
 
 Add an `eco` field to `kanso.json` with a list of folders to search for eco templates.
@@ -15,7 +17,7 @@ Add an `eco` field to `kanso.json` with a list of folders to search for eco temp
         "templates": ["templates"]
     },
 
-The precompiler compiles the eco template into a javascript function that you can require and run to render:
+The Eco precompiler compiles the eco template into a CommonJS module that you can require and run to render:
 
     var template = require('templates/mytemplate');
     vat some_object = { name: "Pete", greeting: "Hello" };
