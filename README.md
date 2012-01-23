@@ -9,11 +9,11 @@ Eco templates run coffeescript directly in your templates.  Check out Sam Stephe
 
 ## To use
 
-Add `eco`, `modules` to your dependencies in `kanso.json`.
+Add `eco-1.1.0` and `modules` to your dependencies in `kanso.json`.
 
     "dependencies": {
         ...
-        "eco": null,
+        "eco-1.1.0": null,
         "modules": null
     }
 
