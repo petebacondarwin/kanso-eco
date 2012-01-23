@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "categories": ["templating"],
     "description": "Embedded CoffeeScript templates",
-    "url": "https://github.com/sstephenson/eco",
+    "url": "https://github.com/petebacondarwin/kanso-eco/",
     "dependencies": {
         "modules": null
     },
