@@ -1,0 +1,13 @@
+{
+    "name": "eco-testapp",
+    "version": "0.0.1",
+    "description": "Tests whether the eco package works correctly",
+    "dependencies": {
+        "eco": null,
+        "attachments":null
+    },    
+    "eco" : {
+        "templates": ["templates"]
+    },
+    "attachments": ["index.html"]        
+}

@@ -1,0 +1,4 @@
+exports.package_paths = [
+    // Change this to the path to the eco package (i.e. an absolute version of "../../"")
+    '/home/pete/dev/technology/kanso/packages/'
+];

@@ -1,0 +1,20 @@
+{
+  "author": "Pete Bacon Darwin",
+  "name": "kanso-eco",
+  "description": "Eco templates in Kanso",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/petebacondarwin/kanso-eco.git"
+  },
+  "engines": {
+    "node": "~0.6.6"
+  },
+  "dependencies": {
+    "eco": "1.1.x",
+    "kanso-utils": "0.1.x",
+    "async": "0.1.x"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
