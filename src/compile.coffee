@@ -1,6 +1,6 @@
 utils = require('kanso-utils/utils')
 async = require('async')
-precompiler = require('./precompiler')
+precompiler = require('precompiler')
 eco  = require("eco")
 
 compileTemplate = (doc, path, filename, callback) ->
@@ -20,7 +20,8 @@ compileTemplate = (doc, path, filename, callback) ->
 
 
 module.exports =
-  before: "modules"
+  after: "precompiler-base"
+  before: "properties"
   run: (root, path, settings, doc, callback) ->
     console.log "Running eco pre-compiler"
     return callback(null, doc) unless settings["eco"]?["templates"]?

@@ -1,11 +1,12 @@
 {
     "name": "eco-1.1.0",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "categories": ["templating"],
     "description": "Embedded CoffeeScript templates",
     "url": "https://github.com/petebacondarwin/kanso-eco/",
     "dependencies": {
-        "modules": "~0.1.3"
+        "precompiler-base": null,
+        "modules": null
     },
     "preprocessors": {
         "compile": "build/compile"

@@ -5,7 +5,7 @@
 
   async = require('async');
 
-  precompiler = require('./precompiler');
+  precompiler = require('precompiler-base/precompiler');
 
   eco = require("eco");
 
@@ -19,7 +19,8 @@
   };
 
   module.exports = {
-    before: "modules",
+    after: "precompiler-base",
+    before: "properties",
     run: function(root, path, settings, doc, callback) {
       var processTemplate, templatePaths, _ref;
       console.log("Running eco pre-compiler");
