@@ -11,11 +11,11 @@
       utils = require('kanso-utils/utils');
       async = require('async');
       eco = require("eco");
-      precompiler = require('precompiler');
+      precompiler = require('./precompiler');
       compileTemplate = function(filename, callback) {
         var name, template;
-        console.log("Compiling Eco Template: " + filename);
         name = utils.relpath(filename, path).replace(/\.j?eco$/, "");
+        console.log("Compiling Eco Template: " + name);
         template = eco.precompile(fs.readFileSync(filename, 'utf8'));
         precompiler.addModule(doc, name, filename, "module.exports = " + template);
         return callback(null, doc);

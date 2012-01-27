@@ -8,23 +8,18 @@ module.exports =
     utils = require('kanso-utils/utils')
     async = require('async')
     eco  = require("eco")
-    precompiler = require('precompiler')
+    precompiler = require('./precompiler')
 
     compileTemplate = (filename, callback) ->
-      console.log "Compiling Eco Template: " + filename
-
       # Make template filename relative and Strip off the extension
       name = utils.relpath(filename, path).replace(/\.j?eco$/, "")
-      
+      console.log "Compiling Eco Template: " + name      
       # Compile the template
       template = eco.precompile(fs.readFileSync filename, 'utf8')
-      
       # Add the compiled template to the design document
       precompiler.addModule(doc, name, filename, "module.exports = #{template}")
-
       # Tell the caller that the template has been compiled
       callback(null, doc)
-
 
     console.log "Running eco pre-compiler"
     # Extract the template paths from the settings
