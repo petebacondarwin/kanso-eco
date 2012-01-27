@@ -1,22 +1,17 @@
-utils = require('kanso-utils/utils')
-async = require('async')
-eco  = require("eco")
-logger = require('logger')
-
 module.exports =
-  after: "precompiler-base"
   before: "modules"
   run: (root, path, settings, doc, callback) ->
-    logger.info "Running eco pre-compiler"
-
     if not settings["eco"]?["templates"]?
-       logger.warning "No eco template setting found"
+       console.log "No eco template setting found"
        callback(null, doc)
 
+    utils = require('kanso-utils/utils')
+    async = require('async')
+    eco  = require("eco")
     precompiler = require('precompiler')
 
     compileTemplate = (filename, callback) ->
-      logger.info "Compiling Eco Template: " + filename
+      console.log "Compiling Eco Template: " + filename
 
       # Make template filename relative and Strip off the extension
       name = utils.relpath(filename, path).replace(/\.j?eco$/, "")
@@ -31,6 +26,7 @@ module.exports =
       callback(null, doc)
 
 
+    console.log "Running eco pre-compiler"
     # Extract the template paths from the settings
     templatePaths = precompiler.normalizePaths(settings["eco"]["templates"], path)
 
