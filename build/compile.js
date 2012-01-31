@@ -1,17 +1,22 @@
 (function() {
+  var async, eco, precompiler, utils;
+
+  async = require('async');
+
+  utils = require('kanso-utils/utils');
+
+  precompiler = require('kanso-precompiler-base');
+
+  eco = require("eco");
 
   module.exports = {
     before: "modules",
     run: function(root, path, settings, doc, callback) {
-      var async, compileTemplate, eco, precompiler, templatePaths, utils, _ref;
-      if (!(((_ref = settings["eco"]) != null ? _ref["templates"] : void 0) != null)) {
+      var compileTemplate, templatePaths, _ref;
+      if (((_ref = settings["eco"]) != null ? _ref["templates"] : void 0) == null) {
         console.log("No eco template setting found");
-        callback(null, doc);
+        return callback(null, doc);
       }
-      utils = require('kanso-utils/utils');
-      async = require('async');
-      eco = require("eco");
-      precompiler = require('./precompiler');
       compileTemplate = function(filename, callback) {
         var name, template;
         name = utils.relpath(filename, path).replace(/\.j?eco$/, "");

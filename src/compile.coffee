@@ -1,14 +1,15 @@
+async = require('async')
+utils = require('kanso-utils/utils')
+precompiler = require('kanso-precompiler-base')
+eco  = require("eco")
+
 module.exports =
   before: "modules"
   run: (root, path, settings, doc, callback) ->
-    if not settings["eco"]?["templates"]?
-       console.log "No eco template setting found"
-       callback(null, doc)
-
-    utils = require('kanso-utils/utils')
-    async = require('async')
-    eco  = require("eco")
-    precompiler = require('./precompiler')
+    # Check the settings are valid
+    unless settings["eco"]?["templates"]?
+      console.log "No eco template setting found"
+      return callback(null, doc)
 
     compileTemplate = (filename, callback) ->
       # Make template filename relative and Strip off the extension
