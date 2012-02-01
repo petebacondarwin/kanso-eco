@@ -2,7 +2,7 @@
   "author": "Pete Bacon Darwin",
   "name": "kanso-eco",
   "description": "Eco templates in Kanso",
-  "version": "1.1.0-kanso.1",
+  "version": "1.1.0-kanso.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/petebacondarwin/kanso-eco.git"

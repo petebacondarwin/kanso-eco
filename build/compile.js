@@ -1,7 +1,5 @@
 (function() {
-  var async, eco, precompiler, utils;
-
-  async = require('async');
+  var eco, precompiler, utils;
 
   utils = require('kanso-utils/utils');
 
@@ -23,11 +21,13 @@
         console.log("Compiling Eco Template: " + name);
         template = eco.precompile(fs.readFileSync(filename, 'utf8'));
         precompiler.addModule(doc, name, filename, "module.exports = " + template);
-        return callback(null, doc);
+        return callback(null);
       };
       console.log("Running eco pre-compiler");
       templatePaths = precompiler.normalizePaths(settings["eco"]["templates"], path);
-      return precompiler.processPaths(templatePaths, /.*\.j?eco$/i, compileTemplate, callback);
+      return precompiler.processPaths(templatePaths, /.*\.j?eco$/i, compileTemplate, function(err) {
+        return callback(err, doc);
+      });
     }
   };
 

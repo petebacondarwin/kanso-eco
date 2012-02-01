@@ -1,4 +1,3 @@
-async = require('async')
 utils = require('kanso-utils/utils')
 precompiler = require('kanso-precompiler-base')
 eco  = require("eco")
@@ -19,13 +18,13 @@ module.exports =
       template = eco.precompile(fs.readFileSync filename, 'utf8')
       # Add the compiled template to the design document
       precompiler.addModule(doc, name, filename, "module.exports = #{template}")
-      # Tell the caller that the template has been compiled
-      callback(null, doc)
+      # Tell the caller that the template has been compiled without error
+      callback(null)
 
     console.log "Running eco pre-compiler"
     # Extract the template paths from the settings
     templatePaths = precompiler.normalizePaths(settings["eco"]["templates"], path)
 
     # Run processTemplate, asynchronously, on each of the files that match the given pattern, in the given paths 
-    precompiler.processPaths(templatePaths, /.*\.j?eco$/i, compileTemplate, callback)
+    precompiler.processPaths(templatePaths, /.*\.j?eco$/i, compileTemplate, (err)->callback(err,doc))
 
